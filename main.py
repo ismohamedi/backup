@@ -4,28 +4,46 @@ import os
 from fastapi import Depends, FastAPI, Header, HTTPException
 from fastapi_utils.tasks import repeat_every
 
-from google_api import upload_file, get_files
+from tasks import upload_file, get_files, download_file, delete_file
+base_dir = os.getcwd()
+
+if os.getcwd() != 'root/CORES/backup':
+     os.chdir("../backup")
 
 
 logger = logging.getLogger(__name__)
 app = FastAPI(title="ShuleSoft backup")
 
-@app.post("/bucket")
-async def create_bucket():
-    return True
 
-@app.get('/files')
+@app.get('/files', tags=['List of File from  Drive'])
 async def get_file():
     return get_files()
 
-@app.post("/buckup")
+@app.get('/delete-file', tags=['Delete file from Drive'])
+async def delete_drive_file(file_id):
+    return delete_file(file_id)
+
+@app.get('/download-files', tags=['Download file from Drive'])
+async def download_files(file_id):
+    if os.getcwd() != '/root/CORES/backup/docs' and  os.getcwd() != '/root/CORES/backup':
+        os.chdir("../docs")
+    elif os.getcwd() == base_dir:
+        os.chdir("docs")
+
+    return download_file(file_id=file_id)
+
+@app.post("/buckup", tags=['Upload file to Drive (Backup)'])
 async def backup():
-    return upload_file()
+     if os.getcwd() != '/root/CORES/backup/docs' and  os.getcwd() != '/root/CORES/backup':
+        os.chdir("../docs")
+     elif os.getcwd() == base_dir:
+        os.chdir("docs")
+     return upload_file()
 
 
-counter = 0
+
 @app.on_event("startup")
-@repeat_every(seconds=12000, logger=logger, wait_first=False)
+@repeat_every(seconds=12000, logger=logger, wait_first=True)
 def periodic():
     print(os.getcwd())
     if os.getcwd() != '/root/CORES/backup/docs':

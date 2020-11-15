@@ -13,6 +13,8 @@ uvicorn = "*"
 python-multipart = "*"
 fastapi-utils = "*"
 google-auth-oauthlib = "*"
+deta = "*"
+aiofiles = "*"
 
 [requires]
 python_version = "3.8"
