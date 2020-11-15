@@ -13,9 +13,6 @@ drive = GoogleDrive(google_login)
 service = build('drive', 'v3', credentials=google_login.credentials) 
 
 
-
-
-
 def delete_file(file_id):
     file_to_delete = drive.CreateFile({'id': file_id})
     file_name = file_to_delete['title']
@@ -48,7 +45,7 @@ def upload_file():
                 else:
                     message = "failed"
                 file_drive = None          
-
+    # has to call email or sms  function to notify after process being done
     return "The files: " + message + " has been uploaded"
 
 
