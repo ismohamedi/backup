@@ -43,7 +43,7 @@ async def backup():
 
 
 @app.on_event("startup")
-@repeat_every(seconds=12000, logger=logger, wait_first=True)
+@repeat_every(seconds=12000, logger=logger, wait_first=False)
 def periodic():
     print(os.getcwd())
     if os.getcwd() != '/root/CORES/backup/docs':
