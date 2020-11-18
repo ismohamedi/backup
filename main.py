@@ -34,7 +34,7 @@ async def backup():
 
 
 @app.on_event("startup")
-@repeat_every(seconds=12000, logger=logger, wait_first=True)
+@repeat_every(seconds=86400, logger=logger, wait_first=True)
 def periodic():
     upload_file()
    
