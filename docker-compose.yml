@@ -12,6 +12,7 @@ services:
     working_dir: /backup
     volumes:
       - .:/backup
+      - /home/db_repository:/home/db_repository
     ports:
       - "8000:8000"
     # depends_on:
