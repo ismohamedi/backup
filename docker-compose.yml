@@ -12,7 +12,7 @@ services:
     working_dir: /backup
     volumes:
       - .:/backup
-      - /home/db_repository:/home/db_repository
+      - /var/lib/pgsql/schema_backups:/var/lib/pgsql/schema_backups
     ports:
       - "8000:8000"
     # depends_on:

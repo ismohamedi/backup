@@ -32,7 +32,7 @@ def download_file(file_id):
 
 def upload_file():
     message = ""
-    for doc in glob.glob("/home/db_repository/*"):
+    for doc in glob.glob("/var/lib/pgsql/schema_backups/*"):
         
     #Uploads a file to the Google Drive.
         if doc != 'client_secrets.json':
@@ -63,9 +63,9 @@ def move_files():
   
     # print(os.getcwd())
     destination = '/backup/weekly_backup'
-    source_dir = '/home/db_repository'
+    source_dir = '/var/lib/pgsql/schema_backups'
  
-    file_names = glob.glob('/home/db_repository/*')
+    file_names = glob.glob('/var/lib/pgsql/schema_backups/*')
     file = ''
     for file_name in file_names:
          if file_name != 'client_secrets.json':
