@@ -8,7 +8,7 @@ from tasks import upload_file, get_files, download_file, delete_file, delete_fil
 
 
 logger = logging.getLogger(__name__)
-app = FastAPI(title="ShuleSoft backup")
+app = FastAPI(title="Google Drive Backup")
 
 
 @app.get('/files', tags=['List of File from  Drive'])
