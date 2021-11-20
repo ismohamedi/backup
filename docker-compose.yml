@@ -7,7 +7,7 @@ services:
     # environment:
     #   IP: 41.59.88.233
     command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000"
-    container_name: shulesoft_backup
+    container_name: backup
     image: backup
     working_dir: /backup
     volumes:
