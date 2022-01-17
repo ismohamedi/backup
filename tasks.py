@@ -82,5 +82,6 @@ def delete_files_after_week():
 
     # docker run -d --name shulesoft_backup -P \ -v /home/db_repository: /home/db_repository  backup:latest
     #docker run -d -v /home/db_repository:/home/db_repository backup:latest usefull
+#file after a week will be deleted
 
 
