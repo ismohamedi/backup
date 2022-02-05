@@ -80,8 +80,5 @@ def delete_files_after_week():
         os.remove(doc)
     return "All files has been deleted from the Weekly_backup folder"
 
-    # docker run -d --name shulesoft_backup -P \ -v /home/db_repository: /home/db_repository  backup:latest
-    #docker run -d -v /home/db_repository:/home/db_repository backup:latest usefull
-#file after a week will be deleted
 
 
